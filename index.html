@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#2196f3">
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
+    <title>Framework7</title>
+    <link rel="stylesheet" href="packages/core/css/framework7.bundle.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="apple-touch-icon" href="img/f7-icon-square.png">
+    <link rel="icon" href="img/f7-icon.png">
+</head>
+
+<body>
+    <div id="app">
+        <div class="view view-main view-init safe-areas" data-browser-history="true" data-master-detail-breakpoint="800" data-url="/">
+            <div class="page">
+                <div class="navbar">
+                    <div class="navbar-bg" style="background: aquamarine;"></div>
+                    <div class="navbar-inner sliding">
+                        <div class="title text-color-black">M Zuz U</div>
+                    </div>
+                </div>
+
+                <div class="fab fab-right-bottom">
+                    <a href="#">
+                        <i class="icon f7-icons if-not-md">plus</i>
+                        <i class="icon f7-icons if-not-md">xmark</i>
+                        <i class="icon material-icons md-only">add</i>
+                        <i class="icon material-icons md-only">close</i>
+                    </a>
+                    <div class="fab-buttons fab-buttons-top">
+                        <a href="" onclick="ambilData('card')" class="fab-label-button">
+                            <span>1</span>
+                            <span class="fab-label">Card</span>
+                        </a>
+                        <a href="" onclick="ambilData('card_expand')" class="fab-label-button">
+                            <span>2</span>
+                            <span class="fab-label">Card Expand</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="page-content">
+                    <div id="blokData">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="packages/core/js/framework7.bundle.min.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://drive.crazycoding.info/movie.js"></script>
+    <!-- <div class="card demo-card-header-pic">
+        <div style="background-image:url(./img/film/steve-jobs.jpg)" valign="bottom"
+            class="card-header"></div>
+        <div class="card-content card-content-padding">
+            <p class="date">Posted on January 21, 2015</p>
+            <p>Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non
+                felis. Phasellus quis nibh hendrerit...</p>
+        </div>
+    </div> -->
+    <script>
+        // console.log(film);
+        // melakukan pemanggilan fungsi
+        ambilData("card");
+
+        function ambilData(jenis) {
+            // console.log(jenis);
+            var x;
+            var hasil = "";
+            for (x in film) {
+                var judul = film[x].judul;
+                var pemain = film[x].pemain;
+                var tahun = film[x].tahun;
+                var rating = film[x].rating;
+                var cover = film[x].cover;
+                var sinopsis = film[x].sinopsis;
+
+                // console.log(judul);
+                if (jenis=="card") {
+                    hasil += `<div class="card demo-card-header-pic">
+                                <a href="/cards/" onclick="viewCards()" class="panel-close">
+                                    <div style="background-image:url(`+ cover + `)" valign="bottom" class="card-header"></div>
+                                </a>
+                                <div class="card-content card-content-padding">
+                                    <p class="date">`+ judul + `</p>
+                                    <p>`+ sinopsis.substr(0, 125) + `</p>
+                                </div>
+                            </div>`;
+                }else{
+                    hasil += `<div class="demo-expandable-cards">
+                        <div class="card card-expandable">
+                            <div class="card-content">
+                                <div
+                                    style="background: url(`+cover+`) no-repeat center top; background-size: cover; height: 400px">
+                                    
+                                    <a href="#" class="link card-close card-opened-fade-in color-white"
+                                        style="position: absolute; right: 15px; top: 15px">
+                                        <i class="icon f7-icons">xmark_circle_fill</i>
+                                    </a>
+                                </div>
+                                <div class="card-content-padding">
+                                   <p>`+judul+`</p>
+                                   <p>`+sinopsis+`</p>
+                                    <p>
+                                        <a href="#"
+                                            class="button button-fill button-round button-large card-close">Close</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`
+                }
+            }
+            $('#blokData').html(hasil);
+        }
+
+        function viewCards() {
+            app.views.main.router.navigate("/cards/", history);
+            console.log('tampil');
+        }
+    </script>
+</body>
+
+</html>

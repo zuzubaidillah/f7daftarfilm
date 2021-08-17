@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#2196f3">
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
+    <title>Framework7</title>
+    <link rel="stylesheet" href="packages/core/css/framework7.bundle.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="apple-touch-icon" href="img/f7-icon-square.png">
+    <link rel="icon" href="img/f7-icon.png">
+</head>
+
+<body>
+    <div id="app">
+        <div class="view view-main view-init safe-areas" data-master-detail-breakpoint="800" data-url="/">
+            <div class="page">
+                <div class="navbar">
+                    <div class="navbar-bg" style="background: aquamarine;"></div>
+                    <div class="navbar-inner sliding">
+                        <div class="title text-color-black">M Zuz U</div>
+                    </div>
+                </div>
+
+                <div class="fab fab-right-bottom">
+                    <a href="#">
+                        <i class="icon f7-icons if-not-md">plus</i>
+                        <i class="icon f7-icons if-not-md">xmark</i>
+                        <i class="icon material-icons md-only">add</i>
+                        <i class="icon material-icons md-only">close</i>
+                    </a>
+                    <div class="fab-buttons fab-buttons-top">
+                        <a href="" class="fab-label-button">
+                            <span>1</span>
+                            <span class="fab-label">Card</span>
+                        </a>
+                        <a href="" class="fab-label-button">
+                            <span>2</span>
+                            <span class="fab-label">Card Expand</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="page-content">
+                    <div class="block-title">Card</div>
+
+                    <div class="card demo-card-header-pic">
+                        <div style="background-image:url(./img/film/steve-jobs.jpg)" valign="bottom"
+                            class="card-header"></div>
+                        <div class="card-content card-content-padding">
+                            <p class="date">Posted on January 21, 2015</p>
+                            <p>Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non
+                                felis. Phasellus quis nibh hendrerit...</p>
+                        </div>
+                    </div>
+
+                    <div class="card demo-card-header-pic">
+                        <div style="background-image:url(./img/film/ex-machina.jpg)" valign="bottom"
+                            class="card-header"></div>
+                        <div class="card-content card-content-padding">
+                            <p class="date">Posted on January 21, 2015</p>
+                            <p>Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non
+                                felis. Phasellus quis nibh hendrerit...</p>
+                        </div>
+                    </div>
+
+                    <div class="card demo-card-header-pic">
+                        <div style="background-image:url(./img/film/the-fifth-estate.jpg)" valign="bottom"
+                            class="card-header"></div>
+                        <div class="card-content card-content-padding">
+                            <p class="date">Posted on January 21, 2015</p>
+                            <p>Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non
+                                felis. Phasellus quis nibh hendrerit...</p>
+                        </div>
+                    </div>
+
+
+                    <!-- card expand -->
+                    <div class="block-title">Card Expand</div>
+                    <div class="demo-expandable-cards">
+                        <div class="card card-expandable">
+                            <div class="card-content">
+                                <div
+                                    style="background: url(./img/film/ex-machina.jpg) no-repeat center top; background-size: cover; height: 400px">
+                                    
+                                    <a href="#" class="link card-close card-opened-fade-in color-white"
+                                        style="position: absolute; right: 15px; top: 15px">
+                                        <i class="icon f7-icons">xmark_circle_fill</i>
+                                    </a>
+                                </div>
+                                <div class="card-content-padding">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus rhoncus
+                                        cursus. Etiam lorem est, consectetur vitae tempor a, volutpat eget purus. Duis
+                                        urna lectus, vehicula at quam id, sodales dapibus turpis. Suspendisse potenti.
+                                        Proin condimentum luctus nulla, et rhoncus ante rutrum eu. Maecenas ut tincidunt
+                                        diam. Vestibulum lacinia dui ligula, sit amet pulvinar nisl blandit luctus.
+                                        Vestibulum aliquam ligula nulla, tincidunt rhoncus tellus interdum at. Phasellus
+                                        mollis ipsum at mollis tristique. Maecenas sit amet tempus justo. Duis dolor
+                                        elit, mollis quis viverra quis, vehicula eu ante. Integer a molestie risus.
+                                        Vestibulum eu sollicitudin massa, sit amet dictum sem. Aliquam nisi tellus,
+                                        maximus eget placerat in, porta vel lorem. Aenean tempus sodales nisl in cursus.
+                                        Curabitur tincidunt turpis in nisl ornare euismod eget at libero.</p>
+                                    <p>Suspendisse ligula eros, congue in nulla pellentesque, imperdiet blandit sapien.
+                                        Morbi nisi sem, efficitur a rutrum porttitor, feugiat vel enim. Fusce eget
+                                        vehicula odio, et luctus neque. Donec mattis a nulla laoreet commodo. Integer
+                                        eget hendrerit augue, vel porta libero. Morbi imperdiet, eros at ultricies
+                                        rutrum, eros urna auctor enim, eget laoreet massa diam vitae lorem. Proin eget
+                                        urna ultrices, semper ligula aliquam, dignissim eros. Donec vitae augue eu
+                                        sapien tristique elementum a nec nulla. Aliquam erat volutpat. Curabitur
+                                        condimentum, metus blandit lobortis fringilla, enim mauris venenatis neque, et
+                                        venenatis lorem urna ut justo. Maecenas neque enim, congue ac tempor quis,
+                                        tincidunt ut mi. Donec venenatis ante non consequat molestie. Quisque ut rhoncus
+                                        ligula. Vestibulum sodales maximus justo sit amet ornare. Nullam pulvinar
+                                        eleifend nisi sit amet molestie.</p>
+                                    <p>
+                                        <a href="#"
+                                            class="button button-fill button-round button-large card-close">Close</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="packages/core/js/framework7.bundle.min.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
