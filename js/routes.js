@@ -6,8 +6,12 @@ var routes = [
     name: 'home',
   },
   {
-    path: '/cards/',
-    url: './pages/cards.html',
+    path: '/cards-detail/',
+    componentUrl: './pages/cards-detail.html',
+  },
+  {
+    path: '/tentang/',
+    url: './pages/tentang.html',
   },
 
   // Default route (404 page). MUST BE THE LAST

@@ -41,4 +41,10 @@ var app = new Framework7({
   vi: {
     placementId: 'pltd4o7ibb9rc653x14',
   },
+  placementKey: "rFk00517Bb",
+  initOnDeviceReady: true,
+  view: {
+    stackPages: true,
+    pushState: true,
+  }
 });

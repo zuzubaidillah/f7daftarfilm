@@ -18,12 +18,18 @@
 
 <body>
     <div id="app">
-        <div class="view view-main view-init safe-areas" data-browser-history="true" data-master-detail-breakpoint="800" data-url="/">
+        <div class="view view-main view-init safe-areas" data-browser-history="true" data-master-detail-breakpoint="800"
+            data-url="/">
             <div class="page">
                 <div class="navbar">
                     <div class="navbar-bg" style="background: aquamarine;"></div>
                     <div class="navbar-inner sliding">
                         <div class="title text-color-black">M Zuz U</div>
+                        <div class="right">
+                            <a href="#" class="link popover-open" data-popover=".popover-menu">
+                                <i class="f7-icons">ellipsis_vertical</i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -48,7 +54,17 @@
 
                 <div class="page-content">
                     <div id="blokData">
+                    </div>
 
+                    <div class="popover popover-menu">
+                        <div class="popover-angle"></div>
+                        <div class="popover-inner">
+                            <div class="list">
+                                <ul>
+                                    <li><a href="/tentang/" class="list-button popover-close">Tentang</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -68,6 +84,24 @@
         </div>
     </div> -->
     <script>
+        // code jquery
+        var scrollBottom = 0;
+        $('.page-content').on('scroll', function () {
+            var scrollTop = this.scrollTop;
+            console.log('top ' + scrollTop);
+            console.log('beforeIfBottom ' + scrollBottom);
+            if (scrollTop > scrollBottom) {
+                // hide
+                $('.fab-right-bottom')
+                    .transition(400)
+                    .transform('translateY(calc(100% + var(--f7-fab-margin) + var(--f7-safe-area-bottom)))')
+            } else {
+                // show
+                $('.fab-right-bottom').transform('translateY(0)')
+            }
+            scrollBottom = scrollTop;
+            console.log('bottom ' + scrollBottom);
+        });
         // console.log(film);
         // melakukan pemanggilan fungsi
         ambilData("card");
@@ -76,6 +110,8 @@
             // console.log(jenis);
             var x;
             var hasil = "";
+            var nilai = "";
+
             for (x in film) {
                 var judul = film[x].judul;
                 var pemain = film[x].pemain;
@@ -84,10 +120,12 @@
                 var cover = film[x].cover;
                 var sinopsis = film[x].sinopsis;
 
+                nilai = "jdl=" + judul + "&pem=" + pemain + "&th=" + tahun + "&rate=" + rating + "&sampul=" + cover + "&des=" + sinopsis;
+
                 // console.log(judul);
-                if (jenis=="card") {
+                if (jenis == "card") {
                     hasil += `<div class="card demo-card-header-pic">
-                                <a href="/cards/" onclick="viewCards()" class="panel-close">
+                                <a href="/cards-detail/?`+ nilai + `" class="panel-close">
                                     <div style="background-image:url(`+ cover + `)" valign="bottom" class="card-header"></div>
                                 </a>
                                 <div class="card-content card-content-padding">
@@ -95,12 +133,12 @@
                                     <p>`+ sinopsis.substr(0, 125) + `</p>
                                 </div>
                             </div>`;
-                }else{
+                } else {
                     hasil += `<div class="demo-expandable-cards">
                         <div class="card card-expandable">
                             <div class="card-content">
                                 <div
-                                    style="background: url(`+cover+`) no-repeat center top; background-size: cover; height: 400px">
+                                    style="background: url(`+ cover + `) no-repeat center top; background-size: cover; height: 400px">
                                     
                                     <a href="#" class="link card-close card-opened-fade-in color-white"
                                         style="position: absolute; right: 15px; top: 15px">
@@ -108,8 +146,8 @@
                                     </a>
                                 </div>
                                 <div class="card-content-padding">
-                                   <p>`+judul+`</p>
-                                   <p>`+sinopsis+`</p>
+                                   <p>`+ judul + `</p>
+                                   <p>`+ sinopsis + `</p>
                                     <p>
                                         <a href="#"
                                             class="button button-fill button-round button-large card-close">Close</a>

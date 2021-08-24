@@ -1,0 +1,70 @@
+<template>
+    <div class="page">
+        <div class="navbar">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner sliding">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="if-not-md">Back</span>
+                    </a>
+                </div>
+                <div class="title">Detail Film</div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="block">
+
+                <p><center><b>{{judul}}</b></center></p>
+                <img id="htmlSampul" src="https://cdn.framework7.io/placeholder/people-500x500-10.jpg" class="lazy lazy-fade-in demo-lazy"/>
+
+                <br>
+                <div class="row" id="htmlIsi">
+                    <div class="col-33"><b> Judul</b></div>
+                    <div class="col-66">memuat...</div>
+                    <div class="col-33"><b> Judul</b></div>
+                    <div class="col-66">memuat...</div>
+                    <div class="col-33"><b> Judul</b></div>
+                    <div class="col-66">memuat...</div>
+                    <div class="col-33"><b> Judul</b></div>
+                    <div class="col-66">memuat...</div>
+                    <div class="col-99"><b> Judul</b></div>
+                    <div class="col-99">memuat...</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+    return {
+        methods: {
+        },
+        on: {
+            pageInit: function (page) {
+                var self = this;
+                self.$setState(
+                    {
+                        judul: this.$route.query.jdl,
+                        cover: this.$route.query.sampul,
+                    }
+                );
+                // nilai = "jdl="+judul+"&pem="+pemain+"&th="+tahun+"&rate="+rating+"&sampul="+cover+"&des="+sinopsis;
+                var linkSampul = this.$route.query.sampul;
+                $('#htmlSampul').attr("src", linkSampul);
+
+                var isi = `<div class="col-33"><b> Judul</b></div>
+                    <div class="col-66">`+this.$route.query.jdl+`</div>
+                    <div class="col-33"><b> Pemain</b></div>
+                    <div class="col-66">`+this.$route.query.pem+`</div>
+                    <div class="col-33"><b> Tahun</b></div>
+                    <div class="col-66">`+this.$route.query.th+`</div>
+                    <div class="col-33"><b> Rating</b></div>
+                    <div class="col-66">`+this.$route.query.rate+`</div>
+                    <div class="col-99"><center><b> Sinopsis</b></center></div>
+                    <div class="col-99">`+this.$route.query.des+`</div>`;
+                    $('#htmlIsi').html(isi);
+            }
+        }
+    }
+</script>
